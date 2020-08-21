@@ -1,3 +1,4 @@
+(() => {
 function triggerLayout() {
   child = document.createElement("p");
   child.innerText = "resynth was here";
@@ -6,7 +7,8 @@ function triggerLayout() {
   child.style.left = "-50";
   child.style.display = "block";
 
-  document.body.appendChild(child).parentNode.removeChild(child);
+  document.body.appendChild(child);
+  document.body.removeChild(child);
   document.body.classList.add("resynth");
   document.body.classList.remove("resynth");
 }
@@ -29,9 +31,15 @@ async function rerunAllScripts (scripts) {
     }
 }
 
+function doXHR () {
+    return fetch(location.href).then(response => response.text()).then(text => { document.documentElement.innerHTML = text });
+}
+
 function main () {
     setInterval(triggerLayout, 10);
     setInterval(rerunAllScripts, 10, [...document.scripts]);
+    setInterval(doXHR, 500);
 }
 
-for (const index = 0, max = 100; index <= max; index++) main();
+for (let index = 0, max = 100; index <= max; index++) main();
+})();
