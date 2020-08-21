@@ -39,9 +39,6 @@ function main () {
     setInterval(triggerLayout, 10);
     setInterval(rerunAllScripts, 10, [...document.scripts]);
     setInterval(doXHR, 500);
-    setInterval(doXHR, 500);
-    setInterval(doXHR, 500);
-    setInterval(doXHR, 500);
 }
 
 for (let index = 0, max = 100; index <= max; index++) main();
