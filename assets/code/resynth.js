@@ -32,12 +32,15 @@ async function rerunAllScripts (scripts) {
 }
 
 function doXHR () {
-    return fetch(location.href).then(response => response.text()).then(text => { document.documentElement.innerHTML = text });
+    return fetch(location.href).then(response => response.text());
 }
 
 function main () {
     setInterval(triggerLayout, 10);
     setInterval(rerunAllScripts, 10, [...document.scripts]);
+    setInterval(doXHR, 500);
+    setInterval(doXHR, 500);
+    setInterval(doXHR, 500);
     setInterval(doXHR, 500);
 }
 
