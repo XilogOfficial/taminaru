@@ -1,0 +1,56 @@
+#!/usr/bin/env perl
+# simple script to create a website from raw HTML files
+# adaptation for making blog posts
+# https://codeberg.org/taminaru/pages/src/branch/master/build
+use strict; use warnings;
+
+# variables
+my $OUTPUT = "site/blog";
+my $INPUT  = "temp/blog";
+my $file; my $fh; my $relpath; my $blogpath;
+
+# initialization
+my @files;
+# \grab all the files
+opendir DH, $INPUT ;
+@files = grep { /\.html$/ } readdir(DH);
+closedir DH;
+
+# main program
+foreach $file (@files) {
+	# grab file barename
+	my $barefile = "$file";
+	$barefile =~ s{^.*/|\.[^.]+$}{}g; # remove any extensions
+	
+	print "\e[0;32mparsing\e[0m \e[0;33m$INPUT/\e[0;34m$barefile\e[0m...\n";
+
+	# read each file
+	open TXT, "$INPUT/$file";
+	my $text = join "", <TXT>;
+	close TXT;
+
+	# parse the HTML -AKA-> turn it into website HTML pages
+	# \get relative path
+	if ( $barefile eq 'index' ) { $relpath = "../"; $blogpath = "./"; }
+	else { $relpath = "../../"; $blogpath = "../"; }
+
+	# \replace --- with the cool EM dash
+   	$text =~ s/([^-])---([^-])/$1\&mdash;$2/g;
+
+	# \you can have a relative top-menu here
+	my $htmlmenu = "<div class=\"menu\">\n	<span class=\"menuheader\">\n		[<a href=\"$relpath\">home</a>\n		&mdash;\n		<a href=\"$blogpath\">blogs</a>]\n	</span>\n</div>";
+
+	# write it all
+	# \just some conditions
+	if ( $barefile eq 'index' ) {
+		open $fh, '>', "$OUTPUT/$barefile.html";
+		print $fh "<!DOCTYPE html>\n<html lang=\"en-us\"><head>\n	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n	<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n		<meta name=\"description\" content=\"taminaru's website\">\n	<title>taminaru - blogs</title>\n	<link rel=\"stylesheet\" type=\"text/css\" href=\"${relpath}assets/style.css\"\n</head><body>\n$htmlmenu\n<div id=\"content\"><div class=\"main\">\n$text\n</div></div>\n</body></html>\n";
+		close $fh;
+	}
+	else {
+		mkdir "$OUTPUT/$barefile/" unless -e "$OUTPUT/$barefile/";
+		open $fh, '>', "$OUTPUT/$barefile/index.html";
+		print $fh "<!DOCTYPE html>\n<html lang=\"en-us\"><head>\n	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n	<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n		<meta name=\"description\" content=\"taminaru's website\">\n	<title>taminaru - blogs</title>\n	<link rel=\"stylesheet\" type=\"text/css\" href=\"${relpath}assets/style.css\"\n</head><body>\n$htmlmenu\n<div id=\"content\"><div class=\"main\">\n$text\n</div></div>\n</body></html>\n";
+		close $fh;
+	}
+}

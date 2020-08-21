@@ -1,0 +1,9 @@
+<div id="hero" class="{% if page.id %}small{% endif %}">
+    {% include nav.html %}
+    <div class="text">
+        <h1> taminaru </h1>
+        {% if {{page.title}} %}
+            <p> {{page.title}} </p>
+        {% endif %}
+    </div>
+</div>

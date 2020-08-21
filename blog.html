@@ -1,0 +1,18 @@
+---
+layout: default
+title: Blog
+permalink: /blog
+---
+
+<h2># blog</h2>
+
+<p>here are some blog posts I have written</p>
+
+{% for post in site.posts %}
+    <a href="{{ post.url }}">
+        <div class=card>
+            <h3>{{ post.name }}</h3>
+            <h4>{{ post.date | date_to_string: "ordinal", "US" }}</h4>
+        </div>
+    </a>
+{% endfor %}

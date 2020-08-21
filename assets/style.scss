@@ -1,0 +1,119 @@
+---
+---
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./Roboto-Regular.ttf') format('truetype')
+}
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('./Roboto-Bold.ttf') format('truetype')
+}
+@font-face {
+    font-family: 'Roboto Black';
+    src: url('./Roboto-Black.ttf') format('truetype')
+}
+
+$font: 'Roboto';
+$font-bold: 'Roboto Bold';
+$fg: #eee; 
+$bg: rgba(0,0,0,0.7); 
+$col-red: #FF5774; 
+$col-grn: #91C58C; 
+$col-yll: #f7CA98; 
+$col-prp: #8066D7;
+
+html {
+	font-size: 13px;
+}
+@media screen and (min-width: 800px) { html { font-size: 15px; } }
+@media screen and (min-width: 1200px) { html { font-size: 17px; } }
+@media screen and (min-width: 1600px) { html { font-size: 20px; } }
+@media screen and (min-width: 2000px) { html { font-size: 24px; } }
+body {
+    font-family: $font;
+    padding: 0; margin: 0;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    line-height: 1.4;
+    color: $fg;
+}
+@media only screen and (max-width: 1920px) {
+    body { background-image: url("bg-small.jpg") }
+}
+
+a { color: $col-prp; }
+a:hover { color: $col-red; }
+.menu {
+    background-color: $bg;
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    text-align: center;
+    z-index: 999;
+}
+.menuheader { font-size: 1.3em; font-weight: normal; }
+.menuheader a { padding: 2px; margin: 0; }
+
+#content { margin: 0; padding: 0; }
+.main {
+    background-color: $bg;
+    margin-left: auto; margin-right: auto; max-width: 900px;
+    padding: 45px;
+    backdrop-filter: blur(5px);
+}
+
+#hero {
+    height: 100vh;
+    display: flex;
+    &.small {
+        height: 50vh
+    }
+    .text {
+        font-family: 'Roboto Black';
+        align-self: center;
+        justify-self: flex-start;
+        margin-left: 1em;
+        h1 { font-size: 4em; margin-bottom: -0.5em; }
+    }
+}
+
+.card {
+    font-size: 0.8rem;
+    border: 1px #000 solid;
+    padding: 0.7em 1em;
+    border-radius: 0.5em;
+    background-color: $bg;
+}
+
+h1 {
+    font-family: $font-bold;
+    margin: 0;
+    padding: 0;
+    font-size: 3em;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    color: $col-grn;
+}
+h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.7em;
+    color: $col-grn;
+}
+h4, h4 a {
+    margin: 0;
+    padding: 0; 
+    font-size: 1.5em; 
+    color: $col-yll; 
+}
+p { color: $fg; font-size: 1.2em; }
+a { color: $col-yll; padding: 2px; }
+::selection { background-color: $col-red; color: $bg; }
+::-moz-selection { background-color: $col-red; color: $bg; }
+ul { padding: 0 0 0 20px; }
