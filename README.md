@@ -5,3 +5,7 @@
 [His site](https://pages.codeberg.org/taminaru/site/)
 
 # [My site, MUCH MORE IMPROVED](https://taminaru.tk)
+
+His reaction
+
+![His reaction](https://i.imgur.com/L9ydYPT.png)
