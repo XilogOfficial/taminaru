@@ -1,9 +1,21 @@
+<!--if this is a blog post the hero is half height-->
 <div id="hero" class="{% if page.id %}small{% endif %}">
     {% include nav.html %}
     <div class="text">
         <h1> taminaru </h1>
-        {% if {{page.title}} %}
+        {% if {{page.title}} %} <!--if there is a page title add it-->
             <p> {{page.title}} </p>
+        {% endif %}
+
+        {% if page.id %} <!--if this post is a blog-->
+        <div class="PageNavigation">
+            {% if page.previous.url %} <!--if there is a prev post add the button-->
+              <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+            {% endif %}
+            {% if page.next.url %} <!--if there is a next post add the button-->
+              <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+            {% endif %}
+        </div>
         {% endif %}
     </div>
 </div>
