@@ -88,9 +88,11 @@ a:hover { color: $col-red; }
     font-size: 0.8rem;
     border: 1px #000 solid;
     padding: 0.7em 1em;
+    margin: 0.5em;
     border-radius: 0.5em;
     background-color: $bg;
 }
+a .card { margin: 0 }
 
 h1 {
     font-family: $font-bold;
@@ -121,3 +123,4 @@ a { color: $col-yll; padding: 2px; }
 ::selection { background-color: $col-red; color: $bg; }
 ::-moz-selection { background-color: $col-red; color: $bg; }
 ul { padding: 0 0 0 20px; }
+li { line-height: 1; }

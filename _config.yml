@@ -1,5 +1,5 @@
 collections:
-  posts:
+  news:
     output: true
 sass:
   sass_dir: assets

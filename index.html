@@ -10,27 +10,27 @@ title: About
   </div>
 </a>
 
-<h2># welcome</h2>
+<h2>welcome</h2>
 
-<p>I'm taminaru, but you can also call me tami or Mario. I am a FOSS and privacy enthusiast as well as a nerd that likes to play retro games.
-  <br>
-  this website is used as a place for me to keep my stuff in, in a nice clean and tidy way. that includes anything from my blogs to my plans and ideas.</p>
+<p>
+  I'm tanmatsu, but you can also call me Mario.<br>
+  I am a security and FOSS enthusiast and a nerd that does stuff.
+</p>
 
+<h3>stuffs</h3>
 
-<h2># news</h2>
+<ul>
+  <li><a href="https://codeberg.org/BSG/">BSG</a> (archived)</li>
+  <li><a href="https://codeberg.org/tanmatsu/fika">fika</a> (WIP)</li>
+  <li>and a bunch more I am too lazy to list</li>
+</ul>
 
+<h3>news</h3>
 
-<h3>[18 aug 2020]</h3>
-
-
-<p>lots of changes...<br><br> I started learning Rust and Emacs, in order to get prepared for my huge plan, that being adverie.<br> most if not all of my other projects will need to be put on hold for possibly forever, this includes komorebi, pak, etc.</p>
-
-<p>some of them may return if I find them useful for adverie development</p>
-
-  
-<h3>[04 aug 2020]</h3>
-
-
-<p>my website now uses a simplified version of fika that parses just raw HTML and turns it into website pages. configuration is done by editing the script itself.</p>
-
-<p>apart from that, some styling changes have been done and now I am using my own colorscheme, <a href="https://codeberg.org/taminaru/tamina">tamina</a></p>
+{% assign sorted = site.news | reverse %}
+{% for news in sorted %}
+  <div class=card>
+    <h3>{{ news.date | date_to_string: "ordinal", "US" }}</h3>
+    <p>{{ news.content }}</p>
+  </div>
+{% endfor %}
