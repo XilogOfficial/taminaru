@@ -4,7 +4,7 @@
  
 [His site](https://pages.codeberg.org/tanmatsu/site/)
 
-# [My site, MUCH MORE IMPROVED](https://taminaru.tk)
+# [My site, MUCH MORE IMPROVED](https://tanmatsu.tk)
 
 His reaction
 
