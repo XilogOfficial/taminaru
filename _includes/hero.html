@@ -1,5 +1,5 @@
 <!--if this is a blog post the hero is half height-->
-<div id="hero" class="{% if page.id %}small{% endif %}">
+<div id="hero" class="{% unless page.id == "index" %}small{% endunless %}">
     {% include nav.html %}
     <div class="text">
         <h1> tanmatsu </h1>

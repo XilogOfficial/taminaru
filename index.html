@@ -1,6 +1,7 @@
 ---
 layout: default
-title: About
+title: HOME
+id: index
 ---
 
 <a href="https://pages.codeberg.org/tanmatsu/site/">
@@ -10,22 +11,24 @@ title: About
   </div>
 </a>
 
-<h2>welcome</h2>
-
+<h2 id="hi">$ hi!_</h2>
 <p>
   I'm tanmatsu, but you can also call me Mario.<br>
   I am a security and FOSS enthusiast and a nerd that does stuff.
 </p>
 
-<h3>stuffs</h3>
+<h3 id="LINKS">LINKS</h3>
+<p><a href="https://codeberg.org/tanmatsu">git</a> ; <a href="mailto:tanmatsu@tutanota.com">email</a> ; <a href="https://gentoo.live/tanmatsu">social</a></p>
 
+<h3 id="STUFF">STUFF</h3>
 <ul>
+  <li><a href="https://codeberg.org/tanmatsu/chaos">chaOS</a> (WIP)</li>
+  <li><a href="https://codeberg.org/tanmatsu/komorebi">komorebi</a></li>
   <li><a href="https://codeberg.org/BSG/">BSG</a> (archived)</li>
-  <li><a href="https://codeberg.org/tanmatsu/fika">fika</a> (WIP)</li>
-  <li>and a bunch more I am too lazy to list</li>
+  <li><a href="https://codeberg.org/tanmatsu/stuff">and a bunch more I am too lazy to list</a></li>
 </ul>
 
-<h3>news</h3>
+<h3 id="NEWS">NEWS</h3>
 
 {% assign sorted = site.news | reverse %}
 {% for news in sorted %}
