@@ -47,8 +47,6 @@ body {
     position: fixed;
 }
 
-a { color: $col-prp; }
-a:hover { color: $col-red; }
 .menu {
     background-color: $bg;
     position: fixed;
@@ -83,6 +81,7 @@ a:hover { color: $col-red; }
         align-self: center;
         justify-self: flex-start;
         margin-left: 1em;
+        margin-top: 20vh;
         h1 { font-size: 4em; margin-bottom: -0.5em; }
     }
 }
@@ -91,11 +90,10 @@ a:hover { color: $col-red; }
     font-size: 0.8rem;
     border: 1px #000 solid;
     padding: 0.7em 1em;
-    margin: 0.5em;
+    margin: 0.5em 0;
     border-radius: 0.5em;
     background-color: $bg;
 }
-a .card { margin: 0 }
 
 h1 {
     font-family: $font-bold;
@@ -115,15 +113,31 @@ h3 {
     font-size: 1.7em;
     color: $col-grn;
 }
-h4, h4 a {
+h4 {
     margin: 0;
     padding: 0; 
     font-size: 1.5em; 
     color: $col-yll; 
 }
+
+a {
+    text-decoration: none;
+    &[href] {
+        color: $col-prp;
+        &:hover { color: $col-red }
+    }
+}
 p { color: $fg; font-size: 1.2em; }
-a { color: $col-yll; padding: 2px; }
 ::selection { background-color: $col-red; color: $bg; }
 ::-moz-selection { background-color: $col-red; color: $bg; }
 ul { padding: 0 0 0 20px; }
 li { line-height: 1; }
+
+.blink {
+    animation: blink 0.5s infinite;
+}
+@keyframes blink {
+    0%   { opacity: 1 }
+    50%  { opacity: 0 }
+    100%  { opacity: 1 }
+}
