@@ -1,0 +1,93 @@
+---
+layout: default
+name: Comparing programming languages with pure math
+---
+
+<h2>Comparing programming languages with pure math</h2>
+<h4>how close are they really?</h4>
+	
+<p>Programming languages are usually described as being close to math and mathematical notation. However, to what extent does that apply?</p>
+
+<p>For this comparison we will use the C programming language.</p>
+<p><strong>NOTE</strong>: Instead of syntax, we will compare <em>how</em> the language works.</p>
+
+<h4>Numbers</h4>
+
+<p>In math we have the following number groups:</p>
+<ul>
+<li>Natural numbers (N)</li>
+<li>Integers (Z)</li>
+<li>Rational numbers (Q)</li>
+<li>Real numbers (R)</li>
+</ul>
+<p>*excluding whole numbers, since they are the same as natural numbers</p>
+
+<p>In programming languages we usually have the following number groups:</p>
+
+<ul>
+<li>Integers</li>
+<li>Floats</li>
+</ul>
+
+<p>Integers correspond exactly with math.<br />
+Floats comprise of all rational and irrational numbers, plus integers.</p>
+<p>Let's see an example in C:</p>
+
+<pre><code>/* Equivalents to integers */
+int a   = 4; /* usually 4 bytes */
+short b = 2; /* usually 2 bytes */
+long  c     = 4; /* usually 4 bytes */
+long long d = 8; /* usually 8 bytes */
+
+/* Floats (and doubles) */
+float x = 3.2f /* NOTE: the 'f' denotates a floating point literal */
+double y = 0.0;
+</code></pre>
+
+<p>C is, in general, not very off. The major differences are the need of having multiple data types connected with the computer's hardware.</p>
+
+
+<h4>Functions</h4>
+
+<p>In mathematical notation, one may describe a function like so:</p>
+
+<pre><code>f(x) = x + 1
+</code></pre>
+
+<p>This function takes a variable, x, and adds 1 to it.<br />
+Let's compare:</p>
+
+<pre><code>int f(x) {
+  putchar((x + 1));
+}
+</code></pre>
+
+<p>C may not be close to mathematical notation, but the concept is still very similar. We are making a function, which takes the variable <code>x</code> and adds 1 to it.</p>
+
+
+<h4>Sets</h4>
+	
+<p>The equivalent of <a href="https://en.m.wikipedia.org/wiki/Element_(mathematics)">sets</a> in C are arrays.</p>
+
+<pre><code>/* This array holds double numbers */
+double a[] = { 100.0, 42.0, 1.0, 0.0 };
+
+/* This array holds 3 integers */
+int b[3] = { 1, 2, 3 };
+</code></pre>
+
+
+<h4>Sequences</h4>
+<p>In mathematical notation, sequences are usually written in this form:</p>
+<pre><code class="plaintext">(0, 1, 2, 3, 4) — finite sequence
+(0, 1, 2, ...)  — infinite sequence
+</code></pre>
+<p>What differentiates sequences from arrays is that sequences <strong>must</strong> be in order.</p>
+<p>C does not have sequences (not to be confused with <a href="https://en.m.wikipedia.org/wiki/Escape_sequences_in_C">escape sequences</a>; however, we can get really close by using arrays.</p>
+<pre><code>int i;
+
+/* Sequence from 0 to 100 (including 0 and 100) */
+for (i = 0; i &lt;= 100; ++i) {
+    printf(&quot;%d &quot;, i); /* Prints the sequence */
+}
+</code></pre>

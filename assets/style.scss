@@ -17,7 +17,7 @@
 $font: 'Roboto', Arial;
 $font-bold: 'Roboto Bold', Arial;
 $fg: #eee; 
-$bg: rgba(0,0,0,0.7); 
+$bg: rgba(0,0,0,0.7);
 $col-red: #FF5774; 
 $col-grn: #91C58C; 
 $col-yll: #f7CA98; 
@@ -126,6 +126,12 @@ a {
         color: $col-prp;
         &:hover { color: $col-red }
     }
+}
+pre { white-space: pre-wrap; }
+.hljs {
+    border-radius: 0.5em;
+    border: #aaa 1px solid;
+    background-color: $bg !important; /*important so it doesn't get overwritten by hljs styling*/
 }
 p { color: $fg; font-size: 1.2em; }
 ::selection { background-color: $col-red; color: $bg; }
