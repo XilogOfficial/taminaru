@@ -1,0 +1,25 @@
+---
+layout: default
+name: Why Suckless sucks more
+---
+
+<h2>Why Suckless sucks more</h2>
+<h4>and how to avoid their mistakes</h4>
+
+<p>Suckless, Suckless software, &quot;minimalism&quot;, &quot;KISS&quot;; these are all terms most Linux/UNIX users will likely hear at least once.</p>
+<p>So what is Suckless? Suckless (<a href="https://suckless.org">suckless.org</a>) is a team of people believing that software minimalism means writing programs in C while limiting yourself to only ~3000 SLoC (Single Lines of Code). There are a quite a lot of problems with this belief, let's tackle them one-by-one.</p>
+
+<p><strong>1. SLoC is not always accurate</strong></p>
+
+<p>Since they are using C, which is a language that <strong>compiles</strong>, the SLoC of said programs will only vaguely depict how &quot;bloated&quot; it is.</p>
+<p>C not only lets you stack multiple lines into one (allowing you to lazily claim it is actually minimal code) but it also is really optimized when compiled.<br />
+In conclusion, C code can turn out to be way smaller than the original source when compiled, this is also why white-space does not affect the binary size.</p>
+<p><sup>PS: This applies to most if not all compiled languges</sup></p>
+
+<p><strong>2. Limiting a program this much means having to give up on most security</strong></p>
+
+<p>Let's face it, what security can you have when you limit yourself so much that you then have to rely on <a href="https://tools.suckless.org/ii/patches/">patches</a> to gain your functionality back? That, in term, also leads to even more problems, as patches are not a good way to improve programs and can even seriously break them. It is like putting lipstick on a skeleton, it won't make it better, just worse.</p>
+<p>On top of that, let's keep in mind that they are made to run on Xorg instead of Wayland, when Wayland libs are far &quot;more minimal&quot; than Xorg.</p>
+
+<h4 id="further-notes">Further notes</h4>
+<p>Even if Suckless has problems, their software can still help any newcomers wishing to learn C. On top of that, it can also teach newcomers what <em>not</em> to do when starting learning C.</p>
